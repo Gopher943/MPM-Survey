@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    #slider {
+        --active: #5628EE;
+        --balloon: var(--active);
+        --value: #fff;
+        --line: #CDD9ED;
+        touch-action: none;
+        user-select: none;
+        width: 320px;
+        height: 2px;
+        border-radius: 1px;
+        background: var(--line);
+        position: relative;
+
+        .noUi-connects {
+            .noUi-connect {
+                background: var(--active);
+            }
+        }
+
+        .noUi-handle {
+
+            &:before,
+            &:after {
+                border-radius: 20px;
+                transform: scale(var(--s));
+                transition: transform .3s ease, border-radius .3s ease;
+            }
+
+            &:before {
+                --s: .5;
+                background: var(--active);
+            }
+
+            &:after {
+                --s: .2;
+                background: #fff;
+            }
+
+            &.noUi-active {
+                &:before {
+                    --s: 1;
+                }
+
+                &:after {
+                    --s: 1;
+                }
+            }
+        }
+
+        .balloon {
+            --o: 0;
+            --s: 0;
+            --y: 0;
+            --r: 0deg;
+            width: 52px;
+            height: 68px;
+            pointer-events: none;
+            position: absolute;
+            z-index: 5;
+            left: -26px;
+            bottom: 0;
+            transform-origin: 50% 100%;
+
+            &>div {
+                width: 52px;
+                height: 68px;
+                transform-origin: 50% 100%;
+                opacity: var(--o);
+                transform: scale(var(--s)) translate(0, var(--y)) rotate(var(--r));
+                transition: transform .4s ease, opacity .4s ease;
+
+                &:before,
+                &:after {
+                    content: '';
+                    display: block;
+                }
+
+                &:before {
+                    width: 52px;
+                    height: 52px;
+                    border-radius: 60%;
+                    border-bottom-left-radius: 480%;
+                    border-bottom-right-radius: 480%;
+                    border-top-left-radius: 480%;
+                    transform: rotate(135deg);
+                    background: var(--balloon);
+                }
+
+                &:after {
+                    content: attr(data-value);
+                    font-family: 'Roboto', Arial;
+                    font-size: 14px;
+                    font-weight: 500;
+                    color: var(--value);
+                    position: absolute;
+                    left: 0;
+                    right: 0;
+                    top: 16px;
+                    line-height: 24px;
+                    text-align: center;
+                }
+
+                svg {
+                    display: block;
+                    width: 8px;
+                    height: 6px;
+                    fill: var(--balloon);
+                    position: absolute;
+                    left: 22px;
+                    bottom: 0;
+                }
+            }
+
+            &.active {
+                --o: 1;
+                --s: 1;
+                --y: -36px;
+            }
+        }
+
+        // Structure
+        * {
+            touch-action: none;
+            user-select: none;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        &.noUi-state-tap .noUi-connect,
+        &.noUi-state-tap .noUi-origin {
+            transition: transform .3s;
+        }
+
+        .noUi-target {
+            position: relative;
+        }
+
+        .noUi-base,
+        .noUi-connects {
+            position: relative;
+            z-index: 1;
+            width: 100%;
+            height: 100%;
+        }
+
+        .noUi-origin,
+        .noUi-connect {
+            position: absolute;
+            will-change: transform;
+            transform-origin: 0 0;
+            top: 0;
+            left: 0;
+            z-index: 1;
+        }
+
+        .noUi-connects {
+            overflow: hidden;
+            z-index: 0;
+            border-radius: 1px;
+
+            .noUi-connect {
+                width: 100%;
+                height: 100%;
+            }
+        }
+
+        .noUi-handle {
+            backface-visibility: hidden;
+            position: absolute;
+            outline: none;
+            cursor: pointer;
+            width: 40px;
+            height: 40px;
+            left: 12px;
+            top: -19px;
+
+            &:before,
+            &:after {
+                content: '';
+                position: absolute;
+            }
+
+            &:before {
+                left: 0;
+                top: 0;
+                width: 40px;
+                height: 40px;
+            }
+
+            &:after {
+                left: 2px;
+                top: 2px;
+                width: 36px;
+                height: 36px;
+            }
+        }
+
+        .noUi-origin {
+            left: auto;
+            right: 0;
+            height: 0;
+            width: 10%;
+        }
+    }
+
+    html {
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    * {
+        box-sizing: inherit;
+
+        &:before,
+        &:after {
+            box-sizing: inherit;
+        }
+    }
+
+    // Center & dribbble
+    body {
+        min-height: 100vh;
+        display: flex;
+        font-family: 'Roboto', Arial;
+        justify-content: center;
+        align-items: center;
+        background: #F5F9FF;
+
+        .dribbble {
+            position: fixed;
+            display: block;
+            right: 20px;
+            bottom: 20px;
+
+            img {
+                display: block;
+                height: 28px;
+            }
+        }
+    }
+</style>
+<script>
+    let slider = document.getElementById('slider'),
+        balloon,
+        balloonTransform,
+        balloonReset;
+
+    noUiSlider.create(slider, {
+        start: 60,
+        connect: 'lower',
+        range: {
+            min: 0,
+            max: 100
+        }
+    });
+
+    if (!balloon) {
+
+        let svg = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
+        svg.setAttribute('viewBox', '0 0 8 6');
+        let path = document.createElementNS('http://www.w3.org/2000/svg', 'path');
+        path.setAttribute('d',
+            'M3.19770784,0.400189793 L0.183732919,4.48916968 C-0.132777702,4.91857125 -0.0301446804,5.51531196 0.41297019,5.82202737 C0.58019429,5.93777661 0.780561067,6 0.986063367,6 L7.01401322,6 C7.55855868,6 8,5.57222019 8,5.04452705 C8,4.84538453 7.93578945,4.65121861 7.81634366,4.48916968 L4.80236874,0.400189793 C4.48585812,-0.0292117777 3.87005999,-0.128668564 3.42694512,0.178046844 C3.33840792,0.239330552 3.2609487,0.314392601 3.19770784,0.400189793 Z'
+        );
+        svg.appendChild(path);
+
+        let inner = document.createElement('div');
+
+        inner.appendChild(svg);
+
+        balloon = document.createElement('div');
+        balloon.classList.add('balloon');
+        balloon.appendChild(inner);
+
+        slider.getElementsByClassName('noUi-base')[0].appendChild(balloon);
+
+        balloonTransform = new Proxy({
+            r: 0
+        }, {
+            set(target, key, value) {
+                target[key] = value;
+                balloon.style.setProperty('--r', target.r + 'deg');
+                return true;
+            },
+            get(target, key) {
+                return target[key];
+            }
+        });
+
+    }
+
+    var timestamp = null,
+        lastX = null,
+        startedMoving = false,
+        moved = false;
+
+    slider.noUiSlider.on('start', function () {
+        let percent = this.get() / this.options.range.max * 100;
+        balloon.classList.add('active');
+        balloon.childNodes[0].dataset.value = Math.round(this.get());
+        TweenMax.to(balloon, 0, {
+            x: this.target.offsetWidth * percent / 100,
+            scale: .75 + .25 * percent / 100
+        });
+        balloonReset = setInterval(() => {
+            if (!moved && startedMoving) {
+                TweenMax.to(slider.getElementsByClassName('noUi-handle')[0], .3, {
+                    css: {
+                        scale: 1
+                    }
+                });
+                balloonTransform.r = 0;
+                startedMoving = false;
+            }
+            moved = false;
+        }, 20);
+    });
+
+    slider.noUiSlider.on('slide', function () {
+        let percent = this.get() / this.options.range.max * 100;
+        balloon.childNodes[0].dataset.value = Math.round(this.get());
+        if (timestamp === null) {
+            timestamp = Date.now();
+            lastX = this.get();
+            return;
+        }
+        var now = Date.now(),
+            speedX = Math.round((this.get() - lastX) / (now - timestamp) * 160),
+            speedX = speedX > 10 ? 10 : speedX < -10 ? -10 : speedX;
+
+        balloonTransform.r = speedX * -2;
+
+        startedMoving = true;
+        moved = true;
+
+        TweenMax.to(balloon, 1.4, {
+            x: this.target.offsetWidth * percent / 100,
+            scale: .75 + .25 * percent / 100,
+            ease: Elastic.easeOut.config(1, .6)
+        });
+
+        TweenMax.to(slider.getElementsByClassName('noUi-handle')[0], .3, {
+            css: {
+                scale: .9
+            }
+        });
+
+        timestamp = now;
+        lastX = this.get();
+    });
+
+    slider.noUiSlider.on('end', function () {
+        balloon.classList.remove('active');
+        clearInterval(balloonReset);
+    });
+</script>
+
+<body>
+
+    <div id="slider"></div>
+
+    <!-- dribbble -->
+    <a class="dribbble" href="https://dribbble.com/shots/7515563-Balloon-Slider" target="_blank"><img
+            src="https://cdn.dribbble.com/assets/dribbble-ball-mark-2bd45f09c2fb58dbbfb44766d5d1d07c5a12972d602ef8b32204d28fa3dda554.svg"
+            alt=""></a>
+</body>
+
+</html>

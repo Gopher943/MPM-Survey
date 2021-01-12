@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>前端搜索功能</title>
+</head>
+
+<body>
+    <div class="content-right">
+        <input type="text"><input type="submit" value="搜索">
+        <h3>应用流体学</h3>
+        <ul id="content_news_list">
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题1</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题2</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题3</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题4</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题5</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题6</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题6</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题6</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题6</a>
+            </li>
+            <li><span>2015-7-8</span>
+                <a href="">这里是文章的标题4</a>
+            </li>
+        </ul>
+    </div>
+</body>
+
+</html>
+<script src="./js/jquery.min.js"></script>
+<script src="">
+</script>
+<script type="text/javascript">
+    $(function () {
+        $("input[type=text]").change(function () {
+            var searchText = $(this).val(); //获取输入的搜索内容
+            var $searchLi = ""; //预备对象，用于存储匹配出的li
+            if (searchText != "") {
+                //获取所有匹配的li
+                $searchLi = $("#content_news_list").find('a:contains(' + searchText + ')').parent();
+                //将内容清空
+                $("#content_news_list").html("");
+            }
+            //将获取的元素追加到列表中
+            $("#content_news_list").html($searchLi).clone();
+            //判断搜索内容是否有效，若无效，输出not find
+            if ($searchLi.length <= 0) {
+                $("#content_news_list").html("<li>not find</li>")
+            }
+        })
+        $("input[type=submit]").click(function () {
+            $("searchText").change();
+        })
+    })
+</script>
+function searcha(){
+$("input[type=search]").change(function () {
+var searchText = $(this).val(); //获取输入的搜索内容
+var $searchLi = ""; //预备对象，用于存储匹配出的li
+if (searchText != "") {
+//获取所有匹配的li
+$searchLi = $("#entriesContainer").find('a:contains(' + searchText + ')').parent();
+//将内容清空
+$("#entriesContainer").html("");
+}
+//将获取的元素追加到列表中
+$("#entriesContainer").html($searchLi).clone();
+//判断搜索内容是否有效，若无效，输出not find
+if ($searchLi.length <= 0) { $("#entriesContainer").html("<li>not find</li>")
+    }
+    })
+    $("input[type=submit]").click(function () {
+    $("searchText").change();
+    })
+    }
