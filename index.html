@@ -2,291 +2,203 @@
 <html lang="en">
 
 <head>
-    <meta http-equiv="Content-Type" content="text/html ;charset=UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Visulization Browser">
-    <meta name="author" content="Gopher">
-    <title>MPM Survey</title>
-    <link rel="icon" href="">
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="description" content="MPM Survey">
+	<meta name="author" content="Gopher">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
-    <link href="css/jquery.nouislider.min.css" rel="stylesheet">
-    <link href="css/custom.css" rel="stylesheet">
+	<title>MPM Survey</title>
+	<!-- Bootstrap -->
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<!-- Optional Bootstrap theme (for fancy look) -->
+	<link href="css/bootstrap-theme.min.css" rel="stylesheet">
 
+	<!-- noUiSlider -->
+	<link href="css/jquery.nouislider.min.css" rel="stylesheet">
 
-    <script src="./js/jquery.js"></script>
-    <script src="./js/jquery.cookie.js"></script>
+	<!-- Custom styles used for this page -->
+	<link href="css/custom.css" rel="stylesheet">
 
-    <script src="./js/bootstrap.min.js"></script>
-    <!-- <script src="./js/jquery.nouislider.min.js"></script> -->
-    <script src="./js/jquery.nouislider.min.js"></script>
-    <script src="./js/d3.v3.min.js"></script>
-
-    <script src="./js/visbrowser.js"></script>
 </head>
 
+<body>
+	<!-- Static navbar -->
+	<div class="navbar navbar-default navbar-static-top custom-navbar" role="navigation">
+		<div class="container-fluid custom-navbar-container">
+			<div class="navbar-header">
+				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+					<span class="sr-only">Toggle navigation</span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
 
-<!-- Static navbar -->
+				<div class="navbar-header-container">
+					<div class="navbar-header-top">
+						<span class="navbar-brand-title">MPM Survey</span>
+					</div>
+					<div class="navbar-header-middle">
+						<b>Application of Mathematical Programming
+							Model in Information Visualization: A Survey </b>
+					</div>
+					<div class="navbar-header-bottom">
+						Provided by <a href="" class="navbar-link" target="_blank">ZJUTVIS
+							group</a>
+					</div>
+				</div>
+			</div>
+			<div class="navbar-collapse collapse custom-navbar-collapse">
+				<ul class="nav navbar-nav navbar-right">
 
-<body style="">
-
-    <div class="navbar navbar-default navbar-static-top custom-navbar" role="navigation">
-        <div class="container-fluid custom-navbar-container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                </button>
-
-                <div class="navbar-header-container">
-                    <div class="navbar-header-top">
-                        <span class="navbar-brand-title"> MPM Survey</span>
-                    </div>
-                    <div class="navbar-header-middle">
-                        <b>Application of Mathematical Programming
-                            Model in Information Visualization: A Survey</b>
-                    </div>
-                    <div class="navbar-header-bottom">
-                        Provided by <a href="" class="navbar-link" target="_blank">ZJUTVIS group</a>
-                    </div>
-                </div>
-            </div>
-            <div class="navbar-collapse collapse custom-navbar-collapse">
-                <ul class="nav navbar-nav navbar-right">
-
-                    <li>
-                        <a href="" data-toggle="modal" data-target="#summaryTableModal">Summary</a>
-                    </li>
-
-                </ul>
-            </div>
-            <!--/.nav-collapse -->
-        </div>
-    </div>
-
-
-    <!-- Main content wrapper -->
-    <table class="content-wrapper">
-        <tbody>
-            <tr class="content-row">
-                <td class="sidebar-fixed">
-                    <div class="sidebar-container">
-                        <div id="filtersPanel" class="panel panel-default small-bottom-margin">
-                            <div class="panel-body">
-                                <h5 class="entries-count-label panel-label">Techniques displayed:</h5>
-                                <div id="displayedEntriesCount"></div>
-                            </div>
-
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="inline-block panel-label">Search:</h5>
-                                    <div class="btn-group btn-group-justified">
-                                        <input id="searchField" type="search" class="form-control">
-                                        <span class="glyphicon glyphicon-remove search-clear"></span>
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul class="list-group">
-                                <li class="list-group-item">
-                                    <h5 class="inline-block panel-label">Time filter:</h5>
-                                    <div class="time-filter-label-container">
-                                        <span id="timeFilterMin" class="time-filter-min"></span>
-                                        <span id="timeFilterMax" class="time-filter-max"></span>
-                                    </div>
-                                    <div class="time-filter-container">
-                                        <div id="timeFilter"></div>
-                                    </div>
-                                    <div id="timeChart" class="time-chart">
-                                    </div>
-                                </li>
-                            </ul>
-
-                            <ul id="categoriesList" class="list-group" style="height: 498px;">
-                                <li class="list-group-item category-item" data-category="analytic-tasks">
-                                    <h5 class="category-title panel-label">Analytic Tasks
-                                        <button type="button"
-                                            class="btn btn-default btn-xs reset-category-filter hidden"
-                                            title="Reset filters" data-category="analytic-tasks">
-                                            <span class="glyphicon glyphicon-remove"></span></button></h5>
-                                    <div class="category-entries-container" data-category="analytic-tasks">
-
-                                        <button type="button" class="btn btn-default category-entry active"
-                                            data-tooltip="tooltip" data-entry="discourse-analysis" title=""
-                                            data-original-title="Discourse Analysis"><span
-                                                class="glyphicon glyphicon-bullhorn"></span></button>
-
-                                        <button type="button" class="btn btn-default category-entry active"
-                                            data-tooltip="tooltip" data-entry="stance-analysis" title=""
-                                            data-original-title="Stance Analysis"><span
-                                                class="glyphicon glyphicon-ok-circle"></span></button>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </td>
-                <td>
-                    <div class="container-fluid">
-                        <div class="row-container">
-
-                            <div class="row">
-                                <div id="entriesContainer" class="col-md-12" style="height: 805px;">
-
-                                </div>
-
-                            </div>
-
-                        </div>
+					<li>
+						<a href="#" data-toggle="modal" data-target="#summaryTableModal">Summary</a>
+					</li>
+				</ul>
+			</div>
+			<!--/.nav-collapse -->
+		</div>
+	</div>
 
 
-                    </div>
+	<!-- Main content wrapper -->
+	<table class="content-wrapper">
+		<tr class="content-row">
+			<td class="sidebar-fixed">
+				<div class="sidebar-container">
+					<div id="filtersPanel" class="panel panel-default small-bottom-margin">
+						<div class="panel-body">
+							<h5 class="entries-count-label panel-label">Techniques displayed:</h5>
+							<div id="displayedEntriesCount"></div>
+						</div>
 
-                </td>
-            </tr>
-        </tbody>
-    </table>
+						<ul class="list-group">
+							<li class="list-group-item">
+								<h5 class="inline-block panel-label">Search:</h5>
+								<div class="btn-group btn-group-justified">
+									<input id="searchField" type="search" class="form-control">
+									<span class="glyphicon glyphicon-remove search-clear"></span>
+								</div>
+							</li>
+						</ul>
 
-    <!-- Summary table modal -->
-    <div id="summaryTableModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="summaryTableTitle"
-        aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog modal-max">
-            <div class="modal-content">
-                <div class="modal-header" hidden="true"></div>
-                <div class="modal-body">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h3>Survey summary</h3>
-                    <div id="summaryTableContainer">
-                        <table class="table table-bordered table-hover">
-                            <thead>
-                                <tr>
-                                    <th>Technique</th>
+						<ul class="list-group">
+							<li class="list-group-item">
+								<h5 class="inline-block panel-label">Time filter:</h5>
+								<div class="time-filter-label-container">
+									<span id="timeFilterMin" class="time-filter-min"></span>
+									<span id="timeFilterMax" class="time-filter-max"></span>
+								</div>
+								<div class="time-filter-container">
+									<div id="timeFilter"></div>
+								</div>
+								<div id="timeChart" class="time-chart">
+								</div>
+							</li>
+						</ul>
 
-                                    <th class="category-cell"><span class="category-entry " data-tooltip="tooltip"
-                                            title="Analytic Task: Discourse Analysis"><span
-                                                class="glyphicon glyphicon-bullhorn"></span></span>
-                                    </th>
-                                    <th class="category-cell"><span class="category-entry " data-tooltip="tooltip"
-                                            title="Analytic Task: Stance Analysis"><span
-                                                class="glyphicon glyphicon-ok-circle"></span></span>
-                                    </th>
+						<ul id="categoriesList" class="list-group">
+						</ul>
 
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td class="technique-cell"><span class="summary-entry-link-wrapper"><a
-                                                href="https://textvis.lnu.se/#" data-id="Chamberlain2018"
-                                                class="summary-entry-link"
-                                                title="Scalable Visualization of Sentiment and Stance by Jon Chamberlain, Udo Kruschwitz, and Orland Hoeber (2018)">Scalable
-                                                Visualization of Sentiment and Stance
-                                                (2018)</a></span></td>
-                                    <td class="category-cell"></td>
-                                    <td class="category-cell category-present" data-tooltip="tooltip"
-                                        title="Analytic Task: Text Summarization / Topic Analysis / Entity Extraction">
-                                    </td>
-                                </tr>
+					</div>
+				</div>
+			</td>
 
-                                <tr>
-                                    <td class="technique-cell"><span class="summary-entry-link-wrapper"><a
-                                                href="https://textvis.lnu.se/#" data-id="Ji2019"
-                                                class="summary-entry-link"
-                                                title="Visual Exploration of Neural Document Embedding by Xiaonan Ji et al. (2019)">Visual
-                                                Exploration of Neural Document Embedding
-                                                (2019)</a></span></td>
-                                    <td class="category-cell category-present" data-tooltip="tooltip"
-                                        title="Analytic Task: Text Summarization / Topic Analysis / Entity Extraction">
-                                    </td>
-                                    <td class="category-cell"></td>
+			<td>
+				<div class="container-fluid">
+					<div class="row-container">
 
-                                </tr>
+						<div class="row">
+							<div id="entriesContainer" class="col-md-12">
+								<p class="text-muted">Here comes the content</p>
+							</div>
+						</div>
 
-                                <tr>
-                                    <td class="technique-cell"><span class="summary-entry-link-wrapper"><a
-                                                href="https://textvis.lnu.se/#" data-id="Karduni2019"
-                                                class="summary-entry-link"
-                                                title="Verifi2 by Alireza Karduni et al. (2019)">Verifi2
-                                                (2019)</a></span></td>
-                                    <td class="category-cell category-present" data-tooltip="tooltip"
-                                        title="Analytic Task: Text Summarization / Topic Analysis / Entity Extraction">
-                                    </td>
-                                    <td class="category-cell"></td>
+					</div>
+				</div>
+			</td>
+		</tr>
+	</table>
 
+	<div class="container-fluid">
+		<div class="row-container">
+			<div class="footer">
+				<hr>
+				<p class="text-muted credit no-top-margin no-bottom-margin">
+					© ZJUTVIS group 2020-2021. All rights for the technique images belong to their respective owners.
+				</p>
+				<p class="text-muted credit no-top-margin no-bottom-margin">
+					Last updated: Jan 15, 2021
+				</p>
+				<p class="text-muted credit no-top-margin no-bottom-margin">
+					This website is using Google Analytics (for statistical purposes only) and cookies (for dismissible
+					dialogs only).
+				</p>
+			</div>
+		</div>
+	</div>
 
-                                </tr>
+	<!-- Entry details modal -->
+	<div id="entryDetailsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="entryDetailsTitle"
+		aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-wide">
+			<div class="modal-content">
+				<div class="modal-header" hidden="true"></div>
+				<div class="modal-body">
+					<div class="media">
+						<span class="pull-left">
+							<img id="entryDetailsThumbnail" class="media-object thumbnail200">
+						</span>
+						<div class="media-body">
+							<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+							<h4 id="entryDetailsTitle" class="media-heading entry-details-field entry-details-title">
+							</h4>
+							<h5 id="entryDetailsAuthors" class="entry-details-field"></h5>
+							<div id="entryDetailsCategories" class="entry-details-field"></div>
+							<div class="vertical-delimiter"></div>
+							<h6 id="entryDetailsReference" class="entry-details-field"></h6>
+							<h6 id="entryDetailsUrl" class="entry-details-field"></h6>
+							<h6 id="entryDetailsBibtex" class="entry-details-field"></h6>
+						</div>
+					</div>
+				</div>
+				<div class="modal-footer" hidden="true"></div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
 
-                                <tr>
-                                    <td class="technique-cell"><span class="summary-entry-link-wrapper"><a
-                                                href="https://textvis.lnu.se/#" data-id="Kulahcioglu2019"
-                                                class="summary-entry-link"
-                                                title="Affective Word Clouds by Tugba Kulahcioglu and Gerard de Melo (2019)">Affective
-                                                Word Clouds (2019)</a></span></td>
-                                    <td class="category-cell category-present" data-tooltip="tooltip"
-                                        title="Analytic Task: Text Summarization / Topic Analysis / Entity Extraction">
-                                    </td>
-                                    <td class="category-cell"></td>
+	<!-- Summary table modal -->
+	<div id="summaryTableModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="summaryTableTitle"
+		aria-hidden="true" data-backdrop="static">
+		<div class="modal-dialog modal-max">
+			<div class="modal-content">
+				<div class="modal-header" hidden="true"></div>
+				<div class="modal-body">
+					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+					<h3>Survey summary</h3>
+					<div id="summaryTableContainer"></div>
+				</div>
+				<div class="modal-footer" hidden="true"></div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+	<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+	<script src="js/jquery.js"></script>
+	<script src="js/jquery.cookie.js"></script>
 
-                                </tr>
-                        </table>
-                    </div>
-                </div>
-                <div class="modal-footer" hidden="true"></div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+	<!-- Include all compiled plugins -->
+	<script src="js/bootstrap.min.js"></script>
 
+	<!-- noUiSlider -->
+	<script src="js/jquery.nouislider.min.js"></script>
 
-    <!-- Entry details modal -->
-    <div id="entryDetailsModal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="entryDetailsTitle"
-        aria-hidden="true" data-backdrop="static">
-        <div class="modal-dialog modal-wide">
-            <div class="modal-content">
-                <div class="modal-header" hidden="true"></div>
-                <div class="modal-body">
-                    <div class="media">
-                        <span class="pull-left">
-                            <img id="entryDetailsThumbnail" class="media-object thumbnail200" src="">
-                        </span>
-                        <div class="media-body">
-                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                            <h4 id="entryDetailsTitle" class="media-heading entry-details-field entry-details-title">
-                            </h4>
-                            <h5 id="entryDetailsAuthors" class="entry-details-field"></h5>
-                            <!-- <div id="entryDetailsCategories" class="entry-details-field"></div> -->
-                            <div class="vertical-delimiter"></div>
-                            <h6 id="entryDetailsReference" class="entry-details-field"></h6>
-                            <h6 id="entryDetailsUrl" class="entry-details-field"></h6>
-                            <h6 id="entryDetailsBibtex" class="entry-details-field"></h6>
-                        </div>
-                    </div>
-                </div>
-                <div class="modal-footer" hidden="true"></div>
-            </div><!-- /.modal-content -->
-        </div><!-- /.modal-dialog -->
-    </div><!-- /.modal -->
+	<!-- D3 (used for statistics diagram) -->
+	<script src="js/d3.v3.min.js"></script>
+	<!-- Colorbrewer colors (used for statistics diagram) -->
+	<script src="js/colorbrewer.js"></script>
 
-
-    <div class="container-fluid">
-        <div class="row-container">
-            <div class="footer">
-                <hr>
-                <p class="text-muted credit no-top-margin no-bottom-margin">
-                    © ZJUTVIS group 2020-2021. All rights for the technique images belong to their respective owners.
-                </p>
-                <p class="text-muted credit no-top-margin no-bottom-margin">
-                    Last updated: Jan 11, 2021
-                </p>
-                <p class="text-muted credit no-top-margin no-bottom-margin">
-                    This website is using Google Analytics (for statistical purposes only) and cookies (for dismissible
-                    dialogs only).
-                </p>
-            </div>
-        </div>
-    </div>
-
-
+	<!-- Custom JS code -->
+	<script src="js/visbrowser.js"></script>
 </body>
-
 
 </html>
