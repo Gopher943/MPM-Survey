@@ -256,7 +256,7 @@ function loadCategories(){
 		
 		incompleteCategories = [];
 		
-		stats = { description: "TextVis browser", children: [] };
+		stats = { description: "MPM Survey", children: [] };
 		statsMap = {};
 		
 		var container = $("#categoriesList");
@@ -411,6 +411,7 @@ function loadContent(){
 				}
 			});
 		});
+		updateDisplayedCount();
 		
 		calculateSorting();
 		processStatistics();
@@ -876,7 +877,7 @@ function isRelevantToSearch(entry){
 		return true;
 	
 	// Note: "allAuthors" should be included in order to support alternative name spellings
-	var keys = ["id", "title", "year", "authors", "reference", "url", "categories","keywords","periodical"];
+	var keys = ["id", "title", "year", "authors", "reference", "url", "categories","keywords","venue"];
 	for (var i = 0; i < keys.length; i++) {
 		if (String(entry[keys[i]]).toLowerCase().indexOf(query) != -1) {
 			return true;

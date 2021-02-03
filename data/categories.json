@@ -1,356 +1,417 @@
 [
-  {
-    "type": "category",
-    "title": "large category",
-    "description": "Large Category",
-    "childrenDescription": "Large Category: ",
-    "entries": [
+	{
+	  "type" : "category",
+	  "title" : "Major Category",
+	  "description" : "Major Category",
+	  "childrenDescription" : "Major Category: ",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "visual mapping",
+			"description" : "Visual Mapping & Structure",
+			"content" : "VMS"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "data enhancement",
+			"description" : "Data Enhancement & Transformation",
+			"content" : "DET"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "interactive exploration",
+			"description" : "Interactive Exploration & Analysis",
+			"content" : "IEA"
+		  }]
+	},
+  
+	{
+	  "type" : "category",
+	  "title" : "Minor Category",
+	  "description" : "Minor Category",
+	  "childrenDescription" : "Minor Category: ",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "data summarization",
+			"description" : "Data Summarization",
+			"content" : "DS"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "data transformation",
+			"description" : "Data Transformation",
+			"content" : "DT"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "dimension reduction",
+			"description" : "Dimension Reduction",
+			"content" : "DR"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "pattern",
+			"description" : "Pattern Recognition & Classification",
+			"content" : "PRC"
+		  },
+		
+		  {
+			"type" : "category-entry",
+			"title" : "scaling",
+			"description" : "Scaling & Projection",
+			"content" : "SP"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "geographic map layout",
+			"description" : "Geographic Map Layout",
+			"content" : "GML"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "grid",
+			"description" : "Grid & Rectangle Layout",
+			"content" : "GRL"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "hierarchical",
+			"description" : "Hierarchical Structure Layout",
+			"content" : "HSL"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "node-link",
+			"description" : "Node-Link Graph Layout",
+			"content" : "NLGL"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "perception",
+			"description" : "Perception & Color",
+			"content" : "PC"
+		  },
+  
       {
-        "type": "category-entry",
-        "title": "visual mapping",
-        "description": "Visual Mapping & Structure",
-        "content": "<span class=\"content-entry-label\">V</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "data enhancement",
-        "description": "Data Enhancement & Transformation",
-        "content": "<span class=\"content-entry-label\">D</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "interactive exploration",
-        "description": "Interactive Exploration & Analysis",
-        "content": "<span class=\"content-entry-label\">I</span>"
-      }
-    ]
-  },
-  {
-    "type": "category",
-    "title": "minor category",
-    "description": "Minor Category",
-    "childrenDescription": "Minor Category: ",
-    "entries": [
-      {
-        "type": "category-entry",
-        "title": "data summarization",
-        "description": "Data Summarization",
-        "content": "<span class=\"content-entry-label\">S</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "data transformation",
-        "description": "Data Transformation",
-        "content": "<span class=\"content-entry-label\">T</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "dimension reduction",
-        "description": "Dimension Reduction",
-        "content": "<span class=\"content-entry-label\">R</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "filter",
-        "description": "Filter",
-        "content": "<span class=\"content-entry-label\">F</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "geographic map layout",
-        "description": "Geographic Map Layout",
-        "content": "<span class=\"content-entry-label\">G</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "grid",
-        "description": "Grid & Rectangle Layout",
-        "content": "<span class=\"content-entry-label\">L</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "hierarchical",
-        "description": "Hierarchical Structure Layout",
-        "content": "<span class=\"content-entry-label\">H</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "navigation",
-          "description": "Navigation",
-          "content": "<span class=\"content-entry-label\">N</span>"
+        "type" : "category-entry",
+        "title" : "navigation",
+        "description" : "Navigation",
+        "content" : "N"
         },
-      {
-          "type": "category-entry",
-          "title": "node-link",
-          "description": "Node-Link Graph Layout",
-          "content": "<span class=\"content-entry-label\">N</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "perception",
-          "description": "Perception & Color",
-          "content": "<span class=\"content-entry-label\">P</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "pattern",
-          "description": "Pattern Recognition & Classification",
-          "content": "<span class=\"content-entry-label\">P</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "scaling",
-          "description": "Scaling & Projection",
-          "content": "<span class=\"content-entry-label\">S</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "visual",
-          "description": "Visual Structure",
-          "content": "<span class=\"content-entry-label\">V</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "reconfigure",
-          "description": "Reconfigure",
-          "content": "<span class=\"content-entry-label\">R</span>"
-      }
-    ]
-  },
-  {
-    "type": "category",
-    "title": "optimization model",
-    "description": "Optimization model",
-    "childrenDescription": "Optimization model: ",
-    "entries": [
-      {
-        "type": "category-entry",
-        "title": "om1",
-        "description": "OM1",
-        "content": "<span class=\"content-entry-label\">O1</span>"
-      },
-      {
-        "type": "category-entry",
-        "title": "om2",
-        "description": "OM2",
-        "content": "<span class=\"content-entry-label\">O2</span>"
-      },
-      {
-          "type": "category-entry",
-          "title": "om3",
-          "description": "OM3",
-          "content": "<span class=\"content-entry-label\">O3</span>"
-        },
-        {
-          "type": "category-entry",
-          "title": "om4",
-          "description": "OM4",
-          "content": "<span class=\"content-entry-label\">O4</span>"
-        },
-        {
-          "type": "category-entry",
-          "title": "om5",
-          "description": "OM5",
-          "content": "<span class=\"content-entry-label\">O5</span>"
-        }
-    ]
-  },
-  {
-      "type": "category",
-      "title": "challenge",
-      "description": "Challenge",
-      "childrenDescription": "Challenge: ",
-      "entries": [
-        {
-          "type": "category-entry",
-          "title": "ch1",
-          "description": "CH1",
-          "content": "<span class=\"content-entry-label\">C1</span>"
-        },
-        {
-          "type": "category-entry",
-          "title": "ch2",
-          "description": "CH2",
-          "content": "<span class=\"content-entry-label\">C2</span>"
-        },
-        {
-            "type": "category-entry",
-            "title": "ch3",
-            "description": "CH3",
-            "content": "<span class=\"content-entry-label\">C3</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "ch4",
-            "description": "CH4",
-            "content": "<span class=\"content-entry-label\">C4</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "ch5",
-            "description": "CH5",
-            "content": "<span class=\"content-entry-label\">C5</span>"
-          },
-          {
-              "type": "category-entry",
-              "title": "ch6",
-              "description": "CH6",
-              "content": "<span class=\"content-entry-label\">C6</span>"
-            }
-      ]
-    },
-    {
-      "type": "category",
-      "title": "solution method",
-      "description": "Solution Method",
-      "childrenDescription": "Solution method: ",
-      "entries": [
-        {
-          "type": "category-entry",
-          "title": "sm1",
-          "description": "SM1",
-          "content": "<span class=\"content-entry-label\">M1</span>"
-        },
-        {
-          "type": "category-entry",
-          "title": "sm2",
-          "description": "SM2",
-          "content": "<span class=\"content-entry-label\">M2</span>"
-        },
-        {
-            "type": "category-entry",
-            "title": "sm3",
-            "description": "SM3",
-            "content": "<span class=\"content-entry-label\">M3</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "sm4",
-            "description": "SM4",
-            "content": "<span class=\"content-entry-label\">M4</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "sm5",
-            "description": "SM5",
-            "content": "<span class=\"content-entry-label\">M5</span>"
-          },
-          {
-              "type": "category-entry",
-              "title": "sm6",
-              "description": "SM6",
-              "content": "<span class=\"content-entry-label\">M6</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm7",
-              "description": "SM7",
-              "content": "<span class=\"content-entry-label\">M7</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm8",
-              "description": "SM8",
-              "content": "<span class=\"content-entry-label\">M8</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm9",
-              "description": "SM9",
-              "content": "<span class=\"content-entry-label\">M9</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm10",
-              "description": "SM10",
-              "content": "<span class=\"content-entry-label\">M10</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm11",
-              "description": "SM11",
-              "content": "<span class=\"content-entry-label\">M11</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm12",
-              "description": "SM12",
-              "content": "<span class=\"content-entry-label\">M12</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm13",
-              "description": "SM13",
-              "content": "<span class=\"content-entry-label\">M13</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm14",
-              "description": "SM14",
-              "content": "<span class=\"content-entry-label\">M14</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm15",
-              "description": "SM15",
-              "content": "<span class=\"content-entry-label\">M15</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm16",
-              "description": "SM16",
-              "content": "<span class=\"content-entry-label\">M16</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm17",
-              "description": "SM17",
-              "content": "<span class=\"content-entry-label\">M17</span>"
-            },
-            {
-              "type": "category-entry",
-              "title": "sm18",
-              "description": "SM18",
-              "content": "<span class=\"content-entry-label\">M18</span>"
-            }
-      ]
-    },
-    {
-      "type": "category",
-      "title": "solution method category",
-      "description": "Solution Method Category",
-      "childrenDescription": "Solution Method Category: ",
-      "entries": [
-        {
-          "type": "category-entry",
-          "title": "smc1",
-          "description": "SMC1",
-          "content": "<span class=\"content-entry-label\">S1</span>"
-        },
-        {
-          "type": "category-entry",
-          "title": "smc2",
-          "description": "SMC2",
-          "content": "<span class=\"content-entry-label\">S2</span>"
-        },
-        {
-            "type": "category-entry",
-            "title": "smc3",
-            "description": "SMC3",
-            "content": "<span class=\"content-entry-label\">S3</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "smc5",
-            "description": "SMC5",
-            "content": "<span class=\"content-entry-label\">S5</span>"
-          },
-          {
-            "type": "category-entry",
-            "title": "smc6",
-            "description": "SMC6",
-            "content": "<span class=\"content-entry-label\">S6</span>"
-          }
-      ]
-    }
-]
+
+		  {
+			"type" : "category-entry",
+			"title" : "filter",
+			"description" : "Filter",
+			"content" : "F"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "reconfigure",
+			"description" : "Reconfigure",
+			"content" : "R"
+		  }
+		]
+	},
+  
+	{
+	  "type" : "category",
+	  "title" : "Optimization model",
+	  "description" : "Optimization model",
+	  "childrenDescription" : "Optimization model:",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "unconstrained",
+			"description" : "Unconstrained Programming",
+			"content" : "UP"
+		  },     
+				   
+		  {
+			"type" : "category-entry",
+			"title" : "linear",
+			"description" : "Linear Programming",
+			"content" : "LP"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "quadratic",
+			"description" : "Quadratic Programming",
+			"content" : "QP"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "nonlinear",
+			"description" : "Nonlinear Programming",
+			"content" : "NP"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "multi-object",
+			"description" : "Multi-Object Programming",
+			"content" : "MOP"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "other1",
+			"description" : "Other",
+			"content" : "O"
+		  }
+  ]
+	},
+  
+	{
+	  "type" : "category",
+	  "title" : "Solution method",
+	  "description" : "Solution method",
+	  "childrenDescription" : "Solution method: ",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "line search",
+			"description" : "Line Search Method",
+			"content" : "LSM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "programming method",
+			"description" : "Programming Method",
+			"content" : "PM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "heuristic algorithm",
+			"description" : "Heuristic Algorithm ",
+			"content" : "HA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "data structure",
+			"description" : "Data Structure and Algorithm",
+			"content" : "DSA"
+		  },
+		  
+		  {
+			"type" : "category-entry",
+			"title" : "solver",
+			"description" : "Solver",
+			"content" : "S"
+		  },
+		  
+		  {
+			"type" : "category-entry",
+			"title" : "other method",
+			"description" : "Other Method",
+			"content" : "OM"
+		  } ]
+  
+	},
+  
+	{
+	  "type" : "category",
+	  "title" : "Solution subclass",
+	  "description" : "Solution subclass",
+	  "childrenDescription" : "Solution subclass: ",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "dynamic programming",
+			"description" : "Dynamic Programming",
+			"content" : "DP"
+		  },     
+				   
+		  {
+			"type" : "category-entry",
+			"title" : "hungary algorithm",
+			"description" : "Hungary Algorithm",
+			"content" : "HA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "simplex method",
+			"description" : "Simplex Method",
+			"content" : "SM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "first order",
+			"description" : "First order Gradient-based Optimization Method",
+			"content" : "FGOM"
+		  },
+		
+		  {
+			"type" : "category-entry",
+			"title" : "second order",
+			"description" : "Second order Gradient-based Optimization Method",
+			"content" : "SGOM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "active set method",
+			"description" : "Active Set Method",
+			"content" : "ASM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "optimization",
+			"description" : "Optimization Method without Derivative",
+			"content" : "OMD"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "simple heuristic",
+			"description" : "Simplex Method",
+			"content" : "SHA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "intelligent optimization",
+			"description" : "Intelligent Optimization Algorithms",
+			"content" : "IOA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "solver1",
+			"description" : "Solver",
+			"content" : "S"
+		  },
+		
+		  {
+			"type" : "category-entry",
+			"title" : "graph theory algorithms",
+			"description" : "Graph Theory Algorithms",
+			"content" : "GTA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "grid search",
+			"description" : "Grid Search",
+			"content" : "GS"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "divide",
+			"description" : "Divide and Conquer",
+			"content" : "DC"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "two",
+			"description" : "Two-Stage Method",
+			"content" : "TSM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "numerical",
+			"description" : "Numerical Algebra Method",
+			"content" : "NAM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "approximation",
+			"description" : "Approximation Algorithm",
+			"content" : "AA"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "analytical method",
+			"description" : "Analytical Method",
+			"content" : "AM"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "other",
+			"description" : "Other",
+			"content" : "O"
+		  }
+		]
+	},
+  
+	{
+	  "type" : "category",
+	  "title" : "Challenge",
+	  "description" : "Challenge",
+	  "childrenDescription" : "Challenge: ",
+  
+	  "entries" : [
+		  {
+			"type" : "category-entry",
+			"title" : "application",
+			"description" : "Application",
+			"content" : "A"
+		  },     
+				   
+		  {
+			"type" : "category-entry",
+			"title" : "evaluation",
+			"description" : "Evaluation",
+			"content" : "E"
+		  },
+		
+		  {
+			"type" : "category-entry",
+			"title" : "model generalization",
+			"description" : "Model generalization",
+			"content" : "MG"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "model scalability",
+			"description" : "Model scalability",
+			"content" : "MS"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "theory research",
+			"description" : "Theory research",
+			"content" : "TR"
+		  },
+  
+		  {
+			"type" : "category-entry",
+			"title" : "visual interaction",
+			"description" : "Visual interaction",
+			"content" : "VI"
+		  }
+		]
+	}]

@@ -58,8 +58,9 @@ body.modal-open {
 
 .navbar-nav > li > a {
     padding-top: 0px;
-    padding-bottom: 0px;
-    line-height: 80px;
+	padding-bottom: 0px;
+	line-height: 40px;
+    /* line-height: 80px; */
 }
 
 .sidebar-container {
@@ -76,9 +77,9 @@ body.modal-open {
 }
 
 .sidebar-fixed {
-	min-width: 220px;
-	max-width: 220px;
-	width: 220px;
+	min-width: 290px;
+	max-width: 290px;
+	width: 290px;
 }
 
 .row-container {
